@@ -149,9 +149,9 @@ export function HeroSection() {
       </div>
 
       {activeDetail && (
-        <div className="absolute inset-0 z-20 flex items-center justify-center p-8">
+        <div className="absolute inset-0 z-20 flex items-center justify-center p-4 md:p-8">
           <div
-            className="glass-strong rounded-3xl p-8 max-w-md w-full mx-4 transform transition-all duration-500 animate-in slide-in-from-bottom-4 fade-in"
+            className="glass-strong rounded-3xl p-6 md:p-8 w-full max-w-[90vw] md:max-w-md mx-auto transform transition-all duration-500 animate-in slide-in-from-bottom-4 fade-in max-h-[80vh] overflow-y-auto"
             style={{ backdropFilter: "blur(20px)" }}
           >
             <div className="flex justify-between items-start mb-4">
@@ -172,9 +172,9 @@ export function HeroSection() {
         </div>
       )}
 
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-10">
+      <div className="absolute right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-10">
         <div className="relative">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
+          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
 
           <div className="flex flex-col gap-6">
             {sidebarItems.map((item, index) => {

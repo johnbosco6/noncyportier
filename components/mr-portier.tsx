@@ -70,7 +70,7 @@ export function MrPortier() {
 
             {/* Main Widget Interface */}
             {isOpen && (
-                <div className="fixed bottom-24 right-6 w-[380px] h-[600px] glass-strong rounded-[2rem] shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300 border border-white/10">
+                <div className="fixed bottom-24 right-4 md:right-6 w-[calc(100vw-32px)] md:w-[380px] h-[600px] max-h-[80vh] glass-strong rounded-[2rem] shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300 border border-white/10">
 
                     {/* Header */}
                     <div className="relative h-32 bg-gradient-to-br from-indigo-900 to-black p-6 flex items-start justify-between shrink-0">
@@ -109,8 +109,8 @@ export function MrPortier() {
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as any)}
                                 className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-bold transition-all duration-300 ${activeTab === tab.id
-                                        ? "bg-amber-500 text-black shadow-lg shadow-amber-900/20"
-                                        : "text-white/50 hover:bg-white/5 hover:text-white"
+                                    ? "bg-amber-500 text-black shadow-lg shadow-amber-900/20"
+                                    : "text-white/50 hover:bg-white/5 hover:text-white"
                                     }`}
                             >
                                 {tab.icon}
