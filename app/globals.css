@@ -120,7 +120,14 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
+  html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body {
     @apply bg-background text-foreground;
     /* Added glassmorphism background with animated gradient */
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);

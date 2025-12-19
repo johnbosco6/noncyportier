@@ -13,7 +13,7 @@ import { SiteFooter } from "@/components/site-footer"
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative overflow-hidden">
       <FloatingNavigation />
 
       <HeroSection />

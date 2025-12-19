@@ -279,7 +279,7 @@ export function CocktailSlider() {
   }
 
   return (
-    <div className="relative w-full py-10">
+    <div className="relative w-full py-10 overflow-hidden">
       <div className="flex items-center justify-between mb-12">
         <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-200 via-white to-amber-500 animate-pulse">
           Nasze Koktajle
@@ -316,10 +316,10 @@ export function CocktailSlider() {
             <div
               key={`${cocktail.originalIndex}-${currentIndex}`} // Unique key to force re-render for clean animation
               className={`absolute transition-all duration-700 ease-in-out cursor-pointer group preserve-3d ${cocktail.position === "center"
-                  ? "z-30 scale-100 opacity-100 translate-x-0 rotate-y-0"
-                  : cocktail.position === "left"
-                    ? "z-20 scale-85 opacity-40 -translate-x-full rotate-y-12 hover:opacity-60 blur-[1px]"
-                    : "z-20 scale-85 opacity-40 translate-x-full -rotate-y-12 hover:opacity-60 blur-[1px]"
+                ? "z-30 scale-100 opacity-100 translate-x-0 rotate-y-0"
+                : cocktail.position === "left"
+                  ? "z-20 scale-85 opacity-40 -translate-x-full rotate-y-12 hover:opacity-60 blur-[1px]"
+                  : "z-20 scale-85 opacity-40 translate-x-full -rotate-y-12 hover:opacity-60 blur-[1px]"
                 }`}
               style={{
                 perspective: "1000px"
@@ -408,8 +408,8 @@ export function CocktailSlider() {
             key={index}
             onClick={() => scrollToIndex(index)}
             className={`w-3 h-1 rounded-full transition-all duration-300 ${index === currentIndex
-                ? "w-8 bg-amber-500 shadow-lg shadow-amber-500/30"
-                : "bg-white/10 hover:bg-white/30"
+              ? "w-8 bg-amber-500 shadow-lg shadow-amber-500/30"
+              : "bg-white/10 hover:bg-white/30"
               }`}
           />
         ))}
