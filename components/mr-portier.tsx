@@ -22,6 +22,7 @@ import {
 export function MrPortier() {
     const [isOpen, setIsOpen] = useState(false)
     const [activeTab, setActiveTab] = useState<"home" | "faq" | "location">("home")
+    const [showReservation, setShowReservation] = useState(false)
 
     const faqs = [
         {
@@ -71,6 +72,70 @@ export function MrPortier() {
             {/* Main Widget Interface */}
             {isOpen && (
                 <div className="fixed bottom-24 right-4 md:right-6 w-[calc(100vw-32px)] md:w-[380px] h-[600px] max-h-[80vh] glass-strong rounded-[2rem] shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300 border border-white/10">
+
+                    {/* Reservation Form Overlay */}
+                    {showReservation && (
+                        <div className="absolute inset-0 z-50 glass-strong backdrop-blur-3xl animate-in fade-in slide-in-from-right-full duration-500 overflow-y-auto">
+                            <div className="p-6 h-full flex flex-col bg-black/60">
+                                <div className="flex justify-between items-center mb-6">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center">
+                                            <Calendar className="w-5 h-5 text-amber-400" />
+                                        </div>
+                                        <h3 className="font-bold text-xl text-white">Rezerwacja</h3>
+                                    </div>
+                                    <Button
+                                        onClick={() => setShowReservation(false)}
+                                        variant="ghost"
+                                        className="text-white/50 hover:text-white hover:bg-white/10 rounded-full w-8 h-8 p-0"
+                                    >
+                                        <X className="w-5 h-5" />
+                                    </Button>
+                                </div>
+
+                                <div className="space-y-4 flex-1">
+                                    <div className="space-y-1.5">
+                                        <label className="text-[10px] uppercase font-bold text-white/40 tracking-wider ml-1">Imię i Nazwisko</label>
+                                        <input type="text" placeholder="Twoje dane..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500/50 transition-colors" />
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-1.5">
+                                            <label className="text-[10px] uppercase font-bold text-white/40 tracking-wider ml-1">Data</label>
+                                            <input type="date" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500/50 transition-colors" />
+                                        </div>
+                                        <div className="space-y-1.5">
+                                            <label className="text-[10px] uppercase font-bold text-white/40 tracking-wider ml-1">Godzina</label>
+                                            <input type="time" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500/50 transition-colors" />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-1.5">
+                                        <label className="text-[10px] uppercase font-bold text-white/40 tracking-wider ml-1">Liczba Osób</label>
+                                        <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500/50 transition-colors appearance-none">
+                                            <option className="bg-slate-900">2 Osoby</option>
+                                            <option className="bg-slate-900">3 Osoby</option>
+                                            <option className="bg-slate-900">4 Osoby</option>
+                                            <option className="bg-slate-900">Większa grupa</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="space-y-1.5">
+                                        <label className="text-[10px] uppercase font-bold text-white/40 tracking-wider ml-1">Uwagi</label>
+                                        <textarea rows={3} placeholder="Specjalne życzenia..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500/50 transition-colors resize-none"></textarea>
+                                    </div>
+                                </div>
+
+                                <div className="mt-6">
+                                    <Button className="w-full py-6 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold rounded-xl shadow-xl shadow-amber-900/20 group">
+                                        Rezerwuj Teraz
+                                        <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                    </Button>
+                                    <p className="text-[10px] text-white/30 text-center mt-3">Skontaktujemy się telefonicznie w celu potwierdzenia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Header */}
                     <div className="relative h-32 bg-gradient-to-br from-indigo-900 to-black p-6 flex items-start justify-between shrink-0">
